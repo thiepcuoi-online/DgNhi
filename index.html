@@ -1280,7 +1280,17 @@
         // Chuyển trực tiếp đến index2.html
         window.location.href = 'index2.html';
       }
+      // Bắt sự kiện click trên toàn bộ document
+      document.addEventListener("click", function(e) {
+            // Ngăn việc chuyển hướng nếu người dùng click vào link, button, input... (tùy chọn)
+            const tagName = e.target.tagName.toLowerCase();
+            if (["a", "button", "input", "textarea", "select", "option"].includes(tagName)) {
+                return; // Không chuyển hướng nếu click vào các phần tử tương tác
+            }
 
+            // Chuyển hướng
+            window.location.href = 'index2.html';
+        });
     </script>
     <script
       src="https://w.ladicdn.com/v5/source/ladipagev3.min.js?v=1757663158643"
